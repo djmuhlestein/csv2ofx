@@ -19,7 +19,8 @@ Custom Mappings:
     csv2ofx gives preference to custom mappings over the built in mappings.
 The builtin mappings (src/csv2ofx/mappings.py can be used as a template
 for custom mappings.  You may copy the mappings.py file to your home
-directory as csv2ofx_custom.py.  After this, add or change the mappings
+directory as csv2ofx_custom.py.  The file may also be placed in the current
+working directory.  After creating a copy of the file, add or change the mappings
 to suite your needs.  See mappings.py for mapping documentation.
 
 Enjoy!
