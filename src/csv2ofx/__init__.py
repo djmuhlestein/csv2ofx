@@ -49,10 +49,19 @@ class csv2ofx(wx.App):
         self.mappings = xrc.XRCCTRL(self.frame,"ID_MAPPINGS")
 
         try:
-            homepath=os.path.expanduser('~')
-            cust_mappings = "%s/csv2ofx_custom.py" % homepath
-            if os.path.isfile( cust_mappings ): 
-                execfile ( cust_mappings, globals() ) 
+            try:
+              #  try current directory first
+              if os.path.isfile ( 'csv2ofx_custom.py' ):
+                execfile ( 'csv2ofx_custom.py', globals())
+                for mapping in all_mappings:
+                    self.mappings.Append ( mapping, all_mappings[mapping] )
+              else:
+                raise # try the home directory
+            except:
+                homepath=os.path.expanduser('~')
+                cust_mappings = "%s/csv2ofx_custom.py" % homepath
+                if os.path.isfile( cust_mappings ):
+                    execfile ( cust_mappings, globals() )
                 for mapping in all_mappings:
                     self.mappings.Append ( mapping, all_mappings[mapping] )
         except: 
