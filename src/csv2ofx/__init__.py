@@ -62,8 +62,8 @@ class csv2ofx(wx.App):
                 cust_mappings = "%s/csv2ofx_custom.py" % homepath
                 if os.path.isfile( cust_mappings ):
                     execfile ( cust_mappings, globals() )
-                for mapping in all_mappings:
-                    self.mappings.Append ( mapping, all_mappings[mapping] )
+                    for mapping in all_mappings:
+                        self.mappings.Append ( mapping, all_mappings[mapping] )
         except: 
             print_exc()
             # Use built in mappings as default/backup
