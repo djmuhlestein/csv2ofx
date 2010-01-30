@@ -33,6 +33,11 @@
 
     'CHECKNUM':lambda row,grid: fromCSVCol(row,grid,'Check Number')
 
+    Special parameters for import use these keys:
+
+        delimiters: delimiter for CSV, default to ','
+        skip_last: number of lines to skip at the end of the CSV file, default to 0
+
     OFX export uses these keys:
 
         skip: not used in export but tells the exporter to skip a row.  Useful for split data (ofx can't handle split data).
@@ -60,7 +65,7 @@
         Number: check number 
 
     mapping dict format
-    {'QIF':<the qif mapping>, 'OFX':<the ofx mapping>}
+    {'_params':<special parameters>, 'QIF':<the qif mapping>, 'OFX':<the ofx mapping>}
 
     The last line in this file tells csv2ofx about your mappings.
     You may add as many as you like.

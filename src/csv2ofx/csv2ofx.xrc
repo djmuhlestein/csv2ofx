@@ -20,13 +20,6 @@
                     <object class="sizeritem">
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>5</border>
-                        <object class="wxButton" name="ID_BTN_IMPORT">
-                            <label>Import</label>
-                        </object>
-                    </object>
-                    <object class="sizeritem">
-                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-                        <border>5</border>
                         <object class="wxStaticText" name="wxID_STATIC">
                             <label>Mapping</label>
                         </object>
@@ -35,6 +28,13 @@
                         <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
                         <border>5</border>
                         <object class="wxChoice" name="ID_MAPPINGS">
+                        </object>
+                    </object>
+                    <object class="sizeritem">
+                        <flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+                        <border>5</border>
+                        <object class="wxButton" name="ID_BTN_IMPORT">
+                            <label>Import</label>
                         </object>
                     </object>
                     <object class="sizeritem">

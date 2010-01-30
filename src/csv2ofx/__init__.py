@@ -165,7 +165,16 @@ class csv2ofx(wx.App):
         
         print "Open File %s" % path
                       
-        self.grid_table = SimpleCSVGrid(path)        
+        mapping = self.mappings.GetClientData(self.mappings.GetSelection())
+        try:
+          delimiter=mapping['_params']['delimiter']
+        except:
+          delimiter=None
+        try:
+          skip_last=mapping['_params']['skip_last']
+        except:
+          skip_last=None
+        self.grid_table = SimpleCSVGrid(path,delimiter,skip_last)
         self.grid.SetTable(self.grid_table)
 	self.opened_path = path
         

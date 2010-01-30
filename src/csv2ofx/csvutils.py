@@ -11,11 +11,11 @@ class SimpleCSVGrid(PyGridTableBase):
         A very basic instance that allows the csv contents to be used
         in a wx.Grid
     """
-    def __init__(self,csv_path):
+    def __init__(self,csv_path,delimiter=',',skip_last=0):
         PyGridTableBase.__init__(self)
           # delimiter, quote could come from config file perhaps
-        csv_reader = csv.reader(open(csv_path,'r'),delimiter=',',quotechar='"')
-        self.grid_contents = [row for row in csv_reader if len(row)>0]        
+        csv_reader = csv.reader(open(csv_path,'r'),delimiter=delimiter,quotechar='"')
+        self.grid_contents = [row for row in csv_reader if len(row)>0][:-skip_last]        
         
         # the 1st row is the column headers
         self.grid_cols = len(self.grid_contents[0])
