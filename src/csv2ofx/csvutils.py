@@ -15,7 +15,9 @@ class SimpleCSVGrid(PyGridTableBase):
         PyGridTableBase.__init__(self)
           # delimiter, quote could come from config file perhaps
         csv_reader = csv.reader(open(csv_path,'r'),delimiter=delimiter,quotechar='"')
-        self.grid_contents = [row for row in csv_reader if len(row)>0][:-skip_last]        
+        self.grid_contents = [row for row in csv_reader if len(row)>0]
+        if skip_last:
+            self.grid_contents=self.grid_contents[:-skip_last]
         
         # the 1st row is the column headers
         self.grid_cols = len(self.grid_contents[0])
